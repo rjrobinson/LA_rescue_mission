@@ -1,9 +1,17 @@
 class QuestionsController < ApplicationController
 
+
+###################
+  #METHOD / ROUTES
+###################
+
   def index
     @questions = Question.all.order(updated_at: :desc)
   end
 
+  def show
+    @question = Question.find(params[:id])
+  end
 
   def new
     @question = Question.new
@@ -19,7 +27,15 @@ class QuestionsController < ApplicationController
     end
   end
 
-  private
+
+
+
+############
+  #METHODS
+############
+
+
+private
 
 
   # this is so that people cant break in and hack your stuff. follow the format!
