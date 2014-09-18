@@ -1,6 +1,7 @@
 class QuestionsController < ApplicationController
 
   def index
+    @questions = Question.all.order(updated_at: :desc)
   end
 
 
@@ -20,6 +21,8 @@ class QuestionsController < ApplicationController
 
   private
 
+
+  # this is so that people cant break in and hack your stuff. follow the format!
   def question_params
     params.require(:question).permit(:title, :description)
   end
