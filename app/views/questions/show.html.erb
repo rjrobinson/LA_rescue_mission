@@ -1,3 +1,15 @@
 <h1> TEST </h1>
 <%= @question.title %>
 <%= @question.description %>
+
+
+<h2>try and answer:</h2>
+<%= form_for([@question, @question.answer.new]) do |f| %>
+  <p>
+    <%= f.label :description %><br>
+    <%= f.text_field :description %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
