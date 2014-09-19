@@ -4,23 +4,9 @@ class AnswersController < ApplicationController
 ###################
   #METHOD / ROUTES
 ###################
-
-  def index
-  end
-
-  def show
-  end
-
-  def new
-  end
-
   def create
-    @answer = Answer.new(answer_params)
-
     @question = Question.find(params[:question_id])
-
-    @answer = @question.answer.create(answer_params)
-
+    @answer = @question.answers.create(answer_params)
     redirect_to question_path(@question)
 
   end

@@ -4,12 +4,22 @@
 
 
 <h2>try and answer:</h2>
-<%= form_for([@question, @question.answer.new]) do |f| %>
+<%= form_for([@question, @question.answers.build]) do |f| %>
   <p>
     <%= f.label :description %><br>
     <%= f.text_field :description %>
   </p>
   <p>
     <%= f.submit %>
+
   </p>
 <% end %>
+
+<ul>
+<p>Previous Answers</p>
+<% @question.answers.each do | answer |%>
+  <li><%= answer.description %> </li>
+<% end %>
+</ul>
+
+
